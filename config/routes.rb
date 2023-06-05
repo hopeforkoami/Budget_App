@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-  get 'payment/index'
-  get 'payment/new'
-  get 'payment/create'
-  get 'payment/destroy'
-  get 'group/index'
-  get 'group/show'
-  get 'group/new'
-  get 'group/create'
-  get 'group/destroy'
+  devise_for :users
+  
+  resources :splash, only: [:index]
+  resources :groups do
+    resources :payment
+  end
+
+  resources :not_found, only: [:index]
+  # Defines the root path route ("/")
+  # root "articles#index"
+  root 'hone#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
