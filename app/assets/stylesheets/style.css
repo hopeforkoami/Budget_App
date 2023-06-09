@@ -1,0 +1,312 @@
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+:root{
+  --temp_blue: #3778c2;
+  --temp_vert: #5fb523;
+  --temp_noir: #434b54;
+  --temp_gris: #f1f1f1;
+
+  --temp_imphasis_font:'Proxima Nova Bold', sans-serif;
+  --temp_font: 'Proxima Nova', sans-serif;
+}
+body{
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: var(--temp_font);
+background-color: #F1F1F1;
+overflow: hidden;
+}
+.splash_page_container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column  ;
+  overflow: hidden;
+}
+.top_section{
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app_name{
+  font-weight: bolder;
+  font-family: var(--temp_imphasis_font);
+}
+.bottom_section{
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.button{
+  width: 80%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'proxima-nova-bold', sans-serif;
+  border: 0px;
+  border-radius: 5px;
+}
+.button:hover{
+  background-color: var(--temp_blue);
+  color: var(--temp_gris);
+}
+/*login page*/
+.login_container{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.nav_bar{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--temp_blue);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.return_button{
+  background-color: var(--temp_blue);
+  border:0;
+}
+.return_arrow{
+  color: white;
+  height: 20px;
+  background-color: var(--temp_blue);
+}
+.return_button:hover{
+  box-shadow: 0px 0px 5px 0px white;
+}
+.nav_title{
+  font-family: var(--temp_imphasis_font);
+  color: white;
+  font-size: 1.5em;
+  padding-top: 3px;
+
+}
+.right_side_button{
+  color: white;
+  font-size: 1em;
+  background-color: var(--temp_blue);
+  border: 0;
+}
+.right_side_button:hover{
+  box-shadow: 0px 0px 5px 0px white;
+}
+.login_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+  
+}
+.input{
+  width: 100%;
+  height: 2.5em;
+  padding-left: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+  color: var(--temp_noir);
+}
+.forgot_password{
+  color: var(--temp_noir);
+  font-size: 1em;
+  padding-top: 1.5em;
+}
+/*category page*/
+.list_options{
+  display: flex;
+  gap: 5em;
+  justify-content: flex-end;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: var(--temp_blue);
+}
+.w50-space-between{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.option{
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  background-color: inherit;
+  border: 0;
+  color: white;
+  align-items: center;
+  gap: 0.5em;
+}
+.option_text{
+  font-family: var(--temp_imphasis_font);
+  font-size: 1em;
+}
+.statut{
+width: 3px;
+height: 3px;
+border: 2px solid white;
+font-family: var(--temp_imphasis_font);
+border-radius: 3px;
+background-color: white;
+}
+.option_desable{
+color: gray!important;
+}
+.hidden{
+  display: none;
+}
+.categories_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+  gap: 0.5em;
+  }
+
+.category{
+  width: 95%;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1em;
+  color: var(--temp_noir);
+}
+.category_name{
+  font-family: var(--temp_imphasis_font);
+  color: gray;
+  font-size: 1.1em;
+}
+.category_amount{
+  font-family: var(--temp_imphasis_font);
+  font-size: 1.1em;
+  font-weight: bolder;
+}
+.category_icon{
+  height: 4em;
+}
+.details{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.add_category{
+  background-color: var(--temp_vert);
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+}
+.add_button{
+  font-size: 1.5em;
+  background-color: inherit;
+  border-radius: 5px;
+  color: var(--temp_gris);
+  width: 80%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.add_button:hover{
+  box-shadow:  0px 0px 5px 0px var(--temp_gris); ;
+}
+.option_desable:hover{
+  box-shadow:  0px 0px 5px 0px var(--temp_gris); ;
+}
+/*category add form*/
+.category_icon_input{
+  height: 2em;
+  width: 100%;
+}
+.nav_bar_2items{
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: flex;
+  gap: 28%;
+  background-color: var(--temp_blue);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+/*page for transactions list*/
+.tansactions_section{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+.transactions_list{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: white;
+  align-items: center;
+  width: 100%;
+}
+.transaction{
+display: flex;
+flex-direction: column;
+width: 95%;
+justify-content: flex-start;
+}
+.separator{
+  width: 95%;
+  height: 2px;
+  background-color: var(--temp_gris);
+}
+.transaction_total{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.total_text{
+  font-family: var(--temp_imphasis_font);
+  font-size: 1.2em;
+}
+.total_amount{
+  font-family: var(--temp_imphasis_font);
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+.transaction_date{
+  font-family: var(--temp_imphasis_font);
+  color: gray;
+}
+/*transaction new*/
+.form_control{
+  width: 100%;
+  height: 2.5em;
+  padding-left: 0.5em;
+  border-radius: 5px;
+  font-size: 1em;
+  color: var(--temp_noir);
+  display: flex;
+  padding-bottom: 1em;
+}
+.input_label{
+  width: 25%;
+  padding-top: 10px;
+  font-family: var(--temp_imphasis_font);
+  font-size: 1em;
+}
+.trans_input{
+  width: 70%;
+}
