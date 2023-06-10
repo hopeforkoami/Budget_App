@@ -1,64 +1,59 @@
 <div class="login_container">
   <div class="nav_bar_2items">
-    <button class="return_button" type="button">
-      <img src="./back.svg" alt="return button" srcset="./back.svg" class="return_arrow">
-    </button>
-    <span class="nav_title">CATEGORIES</span>
+
+    <%= link_to group_index_path, class: "return_button" do %>
+      <%= image_tag('back.svg', class: "return_arrow") %>
+    <% end %>
+    <span class="nav_title">TRANSACTIONS</span>
     <button class="right_side_button hidden">
-      <img src="./search.svg" alt="search button" srcset="./search.svg" class="return_arrow">
+      <%= image_tag('search.svg', class: "return_arrow") %>
     </button>
   </div>
   
   <section class="tansactions_section">
     <div class="category">
-      <img src="./category.png" alt="category icon" srcset="./category.png" class="category_icon">
+      <%= image_tag(@group.icon.attached? ? @group.icon : 'category.png', class: "category_icon") %>
       <div class="details">
-        <span class="category_name">Category 2 </span>
+        <span class="category_name"><%= @group.name %> </span>
       </div>
     </div>
     <div class="separator"></div>
     <div class="transactions_list">
-          <div class="transaction">
-            <span class="transaction name">
-              Transaction N 1
-            </span>
-            <span class="transaction_date">
-              13 Apr 2014 at 12:00
-            </span>
-            <span class="transaction amount">
-              $85.00
+      <% if @payments.any? %>
+          <div class="scroll">
+            <% @payments.each do |payment| %>
+              <div class="transaction">
+              <span class="transaction name">
+                <%= payment.name %>
+              </span>
+              <span class="transaction_date">
+                <% if Time.now - payment.created_at <= 1.minute %>
+                  <%= time_ago_in_words(payment.created_at, include_seconds: true) %> ago
+                <% elsif Time.now - payment.created_at <= 24.hours %>
+                  <%= time_ago_in_words(payment.created_at) %> ago
+                <% else %>
+                  <%= payment.created_at.strftime('%b %d, %Y') %>
+                <% end %>
+              </span>
+              <span class="transaction amount">
+                $ <%= payment.amount %>
+            </div>
+            <div class="separator"></div>
+            <% end %>
           </div>
-          <div class="separator"></div>
-          <div class="transaction">
-            <span class="transaction name">
-              Transaction N 1
-            </span>
-            <span class="transaction_date">
-              13 Apr 2014 at 14:00
-            </span>
-            <span class="transaction amount">
-              $36.00
-          </div>
-          <div class="separator"></div>
-          <div class="transaction">
-            <span class="transaction name">
-              Transaction N 3
-            </span>
-            <span class="transaction_date">
-              13 Apr 2014 at 18:00
-            </span>
-            <span class="transaction amount">
-              $10.00
-          </div>
-          <div class="separator"></div>
+          
+      <%else%>
+        <div class="empty_category">
+          No transactions Found
+        </div>
+      <%end%>
     </div>
     <div class="transaction_total">
       <span class="total_text">TOTAL PAYMENT</span>
-      <span class="total_amount">$420.00</span>
+      <span class="total_amount">$<%= @group.payments.sum(:amount) %></span>
     </div>
     <div class="add_category">
-      <button class="add_button">ADD TRANSACTION
-      </button>
+      <%= link_to "ADD TRANSACTION", new_group_payment_path(group_id: @group.id), class: "add_button"%>
     </div> 
   </section>
 </div>

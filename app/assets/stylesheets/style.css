@@ -331,3 +331,6 @@ justify-content: flex-start;
 .trans_input{
   width: 70%;
 }
+#payment_group_id{
+  width: 70%;
+}

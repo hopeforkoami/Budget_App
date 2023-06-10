@@ -6,6 +6,7 @@ class GroupController < ApplicationController
   end
 
   def show
+    @payments = @group.payments.all
   end
 
   def new
