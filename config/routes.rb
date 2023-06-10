@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :splash, only: [:index]
-  resources :groups do
+  resources :group do
     resources :payment
   end
 
