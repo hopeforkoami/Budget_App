@@ -32,6 +32,7 @@ overflow: hidden;
 .app_name{
   font-weight: bolder;
   font-family: var(--temp_imphasis_font);
+  color: var(--temp_noir);
 }
 .bottom_section{
   height: 30vh;
@@ -48,6 +49,9 @@ overflow: hidden;
   font-family: 'proxima-nova-bold', sans-serif;
   border: 0px;
   border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--temp_noir);
 }
 .button:hover{
   background-color: var(--temp_blue);
