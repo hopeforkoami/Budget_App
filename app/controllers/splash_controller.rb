@@ -8,5 +8,4 @@ class SplashController < ApplicationController
     sign_out current_user
     redirect_to splash_index_path
   end
-
 end

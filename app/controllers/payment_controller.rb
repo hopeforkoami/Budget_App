@@ -1,12 +1,10 @@
 class PaymentController < ApplicationController
-
   before_action :find_user
   before_action :find_group
   before_action :find_group_payments
   before_action :find_payment, only: %i[show edit update destroy]
 
-  def index
-  end
+  def index; end
 
   def new
     @payment = Payment.new
@@ -24,8 +22,7 @@ class PaymentController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
@@ -48,11 +45,9 @@ class PaymentController < ApplicationController
     @expense = Expense.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'Payment not found!'
-    
   end
 
   def payment_params
     params.require(:payment).permit(:name, :amount)
   end
-
 end

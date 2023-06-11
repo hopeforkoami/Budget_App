@@ -24,13 +24,11 @@ class GroupController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
-  
-  private
+
 
   def find_user
     @user = current_user
