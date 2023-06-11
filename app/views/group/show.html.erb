@@ -1,0 +1,57 @@
+<div class="login_container">
+  <div class="nav_bar_2items">
+
+    <%= link_to group_index_path, class: "return_button" do %>
+      <%= image_tag('back.svg', class: "return_arrow") %>
+    <% end %>
+    <span class="nav_title">TRANSACTIONS</span>
+    <button class="right_side_button hidden">
+      <%= image_tag('search.svg', class: "return_arrow") %>
+    </button>
+  </div>
+  
+  <section class="tansactions_section">
+    <div class="category">
+      <%= image_tag(@group.icon.attached? ? @group.icon : 'category.png', class: "category_icon") %>
+      <div class="details">
+        <span class="category_name"><%= @group.name %> </span>
+        <span class="category_amount">$<%= @group.payments.sum(:amount) %></span>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="transactions_list">
+      <% if @payments.any? %>
+          <div class="scroll">
+            <% @payments.each do |payment| %>
+              <div class="transaction">
+              <span class="transaction name">
+                <%= payment.name %>
+              </span>
+              <span class="transaction_date">
+                <% if Time.now - payment.created_at <= 1.minute %>
+                  <%= time_ago_in_words(payment.created_at, include_seconds: true) %> ago
+                <% elsif Time.now - payment.created_at <= 24.hours %>
+                  <%= time_ago_in_words(payment.created_at) %> ago
+                <% else %>
+                  <%= payment.created_at.strftime('%b %d, %Y') %>
+                <% end %>
+              </span>
+              <span class="transaction amount">
+                $ <%= payment.amount %>
+            </div>
+            <div class="separator"></div>
+            <% end %>
+          </div>
+          
+      <%else%>
+        <div class="empty_category">
+          No transactions Found
+        </div>
+      <%end%>
+    </div>
+    
+    <div class="add_category">
+      <%= link_to "ADD TRANSACTION", new_group_payment_path(group_id: @group.id), class: "add_button"%>
+    </div> 
+  </section>
+</div>

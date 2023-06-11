@@ -1,0 +1,26 @@
+<div class="login_container">
+  <%= form_with model: @payment, url: group_payment_index_path, local: true do |f| %>
+    <div class="nav_bar">
+      <%= link_to group_index_path, class: "return_button" do %>
+        <%= image_tag('back.svg', class: "return_arrow") %>
+      <% end %>
+      <span class="nav_title">NEW TRANSACTION</span>
+      <button class="right_side_button">ADD </button>
+    </div>
+    <section class="login_section">
+      <div class="form_control">
+        <label for="trans_name" class="input_label">Name : </label>
+        <%= f.text_field :name, autofocus: true, placeholder: "name", class:"form_text_input input trans_input"  %>
+      </div>
+      <div class="form_control">
+        <label for="trans_amount" class="input_label">Amount : </label>
+        <%= f.number_field :amount, autofocus: true, placeholder: "0", class:"form_text_input input  trans_input"  %>
+      </div>
+      <div class="form_control">
+        <label for="trans_category" class="input_label">Category : </label>
+        <%= f.select :group_id, @user.groups.map { |group| [group.name, group.id]} ,class: "select_input" %>
+      </div>
+      
+    </section>
+  <%end%>
+</div>

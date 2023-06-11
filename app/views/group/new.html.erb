@@ -1,0 +1,17 @@
+<div class="login_container">
+  <%= form_with model: @group, url: group_index_path, local: true do |f| %>
+  <div class="nav_bar">
+    <%= link_to group_index_path, class: "return_button" do %>
+      <%= image_tag('back.svg', class: "return_arrow") %>
+    <% end %>
+    <span class="nav_title">NEW CATEGORY</span>
+    <button class="right_side_button">ADD </button>
+  </div>
+  <section class="login_section">
+    <%= f.text_field :name, autofocus: true, placeholder: "Group name", class:"form_text_input input"  %>
+    <%= f.file_field :icon %>
+    <!-- <input type="text" class="form_text_input input" placeholder="Category Name" name="categor_name"/>
+    <input type="text" class="form_text_input input" placeholder="Category Icon Link" name="categor_icon"/> -->
+  </section>
+  <%end%>
+</div>

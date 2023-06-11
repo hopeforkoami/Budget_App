@@ -1,0 +1,62 @@
+<div class="login_container">
+  <div class="nav_bar">
+    <!-- <button class="return_button" type="button">
+      <img src="./back.svg" alt="return button" srcset="./back.svg" class="return_arrow">
+    </button> -->
+    <%= link_to logout_path, class: "return_button" do %>
+      <%= image_tag('back.svg', class: "return_arrow") %>
+    <% end %>
+    <span class="nav_title">CATEGORIES</span>
+    <button class="right_side_button">
+      <%= image_tag('search.svg', class: "return_arrow") %>
+    </button>
+  </div>
+    <div class="list_options">
+      <div class="w50-space-between">
+         <button class="option_recent option">
+          <span class="option_text">Most recent</span>
+          <span class="option_active statut">.</span>
+        </button>
+        <button class="option_ancient option option_desable">
+          <span class="option_text">Most ancient</span>
+          <span class=" hidden statut">.</span>
+        </button>
+      </div>
+     
+    </div>
+  
+  <section class="categories_section">
+    <% if @groups.any? %>
+    <div class="scroll">
+      <% @groups.each do |group| %>
+      <%= link_to  group_path(id: group.id) , class: "category_link" do%> 
+        <div class="category">
+          <%= image_tag(group.icon.attached? ? group.icon : 'category.png', class: "category_icon") %>
+          <div class="details">
+            <span class="category_name">
+              <%= group.name %> 
+              <br/>
+              <% if Time.now - group.created_at <= 1.minute %>
+                <p><%= time_ago_in_words(group.created_at, include_seconds: true) %> ago</p>
+              <% elsif Time.now - group.created_at <= 24.hours %>
+                <p><%= time_ago_in_words(group.created_at) %> ago</p>
+              <% else %>
+                <p><%= group.created_at.strftime('%b %d, %Y') %></p>
+              <% end %>
+            </span>
+            <span class="category_amount">$<%= group.payments.sum(:amount) %></span>
+          </div>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="empty_category">
+      No categories Found 
+    </div>
+    <% end %>
+    <div class="add_category">
+      <%= link_to "ADD CATEGORY", new_group_path, class: "add_button"%>
+    </div>
+  </section>
+</div>

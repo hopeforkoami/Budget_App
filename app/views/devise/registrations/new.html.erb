@@ -1,0 +1,51 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="login_container">
+    <div class="nav_bar">
+      <%= link_to splash_index_path, class: "return_button" do %>
+        <%= image_tag('back.svg', class: "return_arrow") %>
+      <% end %>
+      <span class="nav_title">REGISTER</span>
+      <%= f.submit "SIGN UP", class: "right_side_button" %>
+    </div>
+    <section class="login_section">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.text_field :name, autofocus: true,class: "form_text_input input", autocomplete: "Name", placeholder: "Name" %>
+      <%= f.email_field :email, autofocus: true,class: "form_text_input input", autocomplete: "email", placeholder: "Email" %>
+      <%= f.password_field :password,class: "form_password_input input", autocomplete: "new-password", placeholder: "Password" %>
+      <%= f.password_field :password_confirmation, class: "form_password_input input", autocomplete: "current-password",placeholder: "Password Confirmation" %>
+      <% if @minimum_password_length %>
+        <em>(Password must be <%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <span class="forgot_password">Forgot Password ?</span>
+    </section>
+  </div>
+<% end %>
+<!-- <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %> -->
