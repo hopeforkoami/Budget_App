@@ -120,7 +120,7 @@ To run all tests, including unit and integration tests, run the following comman
 
 ### Deployment
 
-You can deploy this project using:
+You can deploy this project using :
 
 ```
   N/A
