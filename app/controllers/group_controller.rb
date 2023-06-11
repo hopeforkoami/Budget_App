@@ -6,7 +6,7 @@ class GroupController < ApplicationController
   end
 
   def show
-    @payments = @group.payments.all
+    @payments = @group.payments.all.order(created_at: :desc)
   end
 
   def new
