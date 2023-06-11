@@ -15,6 +15,7 @@
       <%= image_tag(@group.icon.attached? ? @group.icon : 'category.png', class: "category_icon") %>
       <div class="details">
         <span class="category_name"><%= @group.name %> </span>
+        <span class="category_amount">$<%= @group.payments.sum(:amount) %></span>
       </div>
     </div>
     <div class="separator"></div>
@@ -48,10 +49,7 @@
         </div>
       <%end%>
     </div>
-    <div class="transaction_total">
-      <span class="total_text">TOTAL PAYMENT</span>
-      <span class="total_amount">$<%= @group.payments.sum(:amount) %></span>
-    </div>
+    
     <div class="add_category">
       <%= link_to "ADD TRANSACTION", new_group_payment_path(group_id: @group.id), class: "add_button"%>
     </div> 
