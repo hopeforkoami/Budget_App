@@ -13,7 +13,6 @@ class PaymentController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.user_id = @user.id
-    @payment.group_id = @group.id
     if @payment.save
       redirect_to group_path(id: params[:group_id]), notice: 'Payment created successfully'
     else

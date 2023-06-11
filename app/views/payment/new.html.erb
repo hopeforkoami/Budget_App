@@ -15,11 +15,11 @@
       <div class="form_control">
         <label for="trans_amount" class="input_label">Amount : </label>
         <%= f.number_field :amount, autofocus: true, placeholder: "0", class:"form_text_input input  trans_input"  %>
-      <!-- </div>
+      </div>
       <div class="form_control">
         <label for="trans_category" class="input_label">Category : </label>
         <%= f.select :group_id, @user.groups.map { |group| [group.name, group.id]} ,class: "select_input" %>
-      </div> -->
+      </div>
       
     </section>
   <%end%>
